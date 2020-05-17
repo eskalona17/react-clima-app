@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Formulario from "./components/Formulario";
+import Clima from "./components/Clima";
 
 function App() {
   //state
@@ -24,6 +25,7 @@ function App() {
         const respuesta = await fetch(url);
         const resultado = await respuesta.json();
         guardarResultado(resultado)
+        guardarConsultar(false)
       }
     };
     consultarAPI();
@@ -42,7 +44,7 @@ function App() {
                 guardarConsultar={guardarConsultar}
               />
             </div>
-            <div className="col m6 s12">2</div>
+            <div className="col m6 s12"><Clima resultado={resultado}/></div>
           </div>
         </div>
       </div>
